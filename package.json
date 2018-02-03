@@ -1,16 +1,18 @@
 {
-  "name": "jstdd",
+  "name": "jstdd_project_setup",
   "version": "1.0.0",
-  "description": "Curso JSTDD",
+  "description": "Ambient setup for JSTDD course projects",
   "main": "index.js",
   "scripts": {
-    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
-    "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --reporter=spec --watch",
+    "clear": "rimraf lib",
+    "bbuild": "./node_modules/.bin/babel --out-dir lib src",
+    "build": "npm run clear && npm run bbuild",
+    "watch": "npm run build -- --watch",
     "lint": "./node_modules/.bin/eslint /src*.js",
     "prepush": "npm run lint && npm run test:coverage",
-    "build": "./node_modules/.bin/webpack --colors --progress",
-    "watch": "npm run build -- --watch",
     "server": "./node_modules/.bin/webpack-dev-server --inline --open",
+    "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
+    "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --reporter=spec --watch",
     "test:coverage": "nyc npm test"
   },
   "nyc": {
@@ -25,16 +27,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lfdo20/jstdd.git"
+    "url": "git+https://github.com/lfdo20/jstdd_project_setup.git"
   },
-  "keywords": ["js", "tdd", "library", "lib"],
-  "author":
-    "Leandro Fernandes lfdo <lfdo20@gmail.com> (https://lfdo20.github.io/lfdo)",
+  "keywords": [
+    "js",
+    "tdd",
+    "library",
+    "lib"
+  ],
+  "author": "Leandro Fernandes lfdo <lfdo20@gmail.com> (https://lfdo20.github.io/lfdo)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lfdo20/jstdd/issues"
+    "url": "https://github.com/lfdo20/jstdd_project_setup/issues"
   },
-  "homepage": "https://github.com/lfdo20/jstdd#readme",
+  "homepage": "https://github.com/lfdo20/jstdd_project_setup#readme",
   "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.26.0",
@@ -52,6 +58,7 @@
     "husky": "^0.14.3",
     "mocha": "^5.0.0",
     "nyc": "^11.4.1",
+    "rimraf": "^2.6.2",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1"
   }
