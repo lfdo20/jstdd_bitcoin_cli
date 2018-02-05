@@ -1,7 +1,7 @@
 {
-  "name": "jstdd_project_setup",
+  "name": "jstdd_bitcoin_cli",
   "version": "1.0.0",
-  "description": "Ambient setup for JSTDD course projects",
+  "description": "A CLI to convert bitcoin for any currency provided as part of JSTDD course.",
   "main": "index.js",
   "scripts": {
     "clear": "rimraf lib",
@@ -12,12 +12,13 @@
     "prepush": "npm run lint && npm run test:coverage",
     "server": "./node_modules/.bin/webpack-dev-server --inline --open",
     "test": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register",
-    "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --reporter=spec --watch",
+    "test:tdd": "./node_modules/.bin/mocha tests/**/*.spec.js --require babel-register --reporter nyan --watch",
     "test:coverage": "nyc npm test"
   },
+  "preferGlobal": true,
   "nyc": {
-    "functions": 80,
-    "lines": 80,
+    "functions": 0,
+    "lines": 0,
     "check-coverage": true,
     "reporter": [
       "text",
@@ -27,7 +28,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/lfdo20/jstdd_project_setup.git"
+    "url": "git+https://github.com/lfdo20/lfdo_bitcoin_cli.git"
   },
   "keywords": [
     "js",
@@ -38,9 +39,9 @@
   "author": "Leandro Fernandes lfdo <lfdo20@gmail.com> (https://lfdo20.github.io/lfdo)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/lfdo20/jstdd_project_setup/issues"
+    "url": "https://github.com/lfdo20/lfdo_bitcoin_cli/issues"
   },
-  "homepage": "https://github.com/lfdo20/jstdd_project_setup#readme",
+  "homepage": "https://github.com/lfdo20/lfdo_bitcoin_cli#readme",
   "dependencies": {},
   "devDependencies": {
     "babel-core": "^6.26.0",
