@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clear": "rimraf lib",
-    "bbuild": "./node_modules/.bin/babel --out-dir lib src",
+    "bbuild": "./node_modules/.bin/babel --out-dir bin src",
     "build": "npm run clear && npm run bbuild",
     "watch": "npm run build -- --watch",
     "lint": "./node_modules/.bin/eslint /src*.js",
@@ -16,10 +16,16 @@
     "test:coverage": "nyc npm test"
   },
   "preferGlobal": true,
+  "files": [
+    "src"
+  ],
+  "bin": {
+    "btcConverter": "src/main.js"
+  },
   "nyc": {
-    "functions": 0,
-    "lines": 0,
-    "check-coverage": true,
+    "functions": 80,
+    "lines": 80,
+    "check-coverage": false,
     "reporter": [
       "text",
       "html"
@@ -42,7 +48,10 @@
     "url": "https://github.com/lfdo20/lfdo_bitcoin_cli/issues"
   },
   "homepage": "https://github.com/lfdo20/lfdo_bitcoin_cli#readme",
-  "dependencies": {},
+  "dependencies": {
+    "commander": "^2.14.1",
+    "request": "^2.83.0"
+  },
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.2",
@@ -58,8 +67,11 @@
     "eslint-plugin-react": "^7.5.1",
     "husky": "^0.14.3",
     "mocha": "^5.0.0",
+    "nock": "^9.1.6",
     "nyc": "^11.4.1",
     "rimraf": "^2.6.2",
+    "sinon": "^4.2.2",
+    "sinon-chai": "^2.14.0",
     "webpack": "^3.10.0",
     "webpack-dev-server": "^2.11.1"
   }
