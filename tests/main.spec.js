@@ -16,7 +16,7 @@ describe('Bitcoin Cli', () => {
   it('Should return description when --help', (done) => {
     exec(`node ${btcConverter} --help`, (err, stdout, stderr) => {
       if (err) throw err;
-      expect(stdout.includes('Convert bitcoin to any currency.')).to.be.true;
+      expect(stdout.includes('Convert criptocoin to any currency.')).to.be.true;
       done();
     });
   });
